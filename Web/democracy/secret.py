@@ -1,0 +1,1 @@
+SECRET = b'ohgoshIneedtomakekanewsecretbcimtoolazytoc/ptheotheroneah1234t'

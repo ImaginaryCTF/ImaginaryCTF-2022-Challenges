@@ -1,0 +1,13 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: pywrite
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: false
+  image: eu.gcr.io/imaginaryctf-2022/pywrite-challenge:d506350d4525ae41cb61b8253ea1eb65bad5270e502c1fba2388e8a99227298c

@@ -1,0 +1,12 @@
+PermitRootLogin no
+PasswordAuthentication yes
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+UsePAM yes
+PrintMotd no
+Subsystem sftp internal-sftp
+AllowUsers ethan
+Match user ethan
+     ChrootDirectory /ftp
+     X11Forwarding no
+     ForceCommand internal-sftp

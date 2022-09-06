@@ -1,0 +1,13 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: fmt-fun
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: false
+  image: eu.gcr.io/imaginaryctf-2022/fmt-fun-challenge:055fad4c4c4c6a996c9e49dbd2a1773fd4d6966c1f0257b1bf9708d81129b174

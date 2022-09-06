@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: bof
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: false
+    image: eu.gcr.io/imaginaryctf-2022/bof-healthcheck:0977dbb58a6581dff3c580ed8a8501b50182979dfe14497c837163027f28a30f
+  image: eu.gcr.io/imaginaryctf-2022/bof-challenge:080bceb10ba386cf5e271d650c08734374512bd2f84a2e1132db10d43db6f09c

@@ -1,0 +1,13 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: fmt-foolery
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: false
+  image: eu.gcr.io/imaginaryctf-2022/fmt-foolery-challenge:63fb1e472cc39ebd31181456c1c84134f7dd843aef50c81c69f8c23ea36a1dc2

@@ -1,0 +1,1 @@
+ictf{if_the_house_isn't_using_cryptographically_secure_PRNG_the_house_deserves_to_lose}

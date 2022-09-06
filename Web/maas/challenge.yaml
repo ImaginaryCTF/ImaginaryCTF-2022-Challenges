@@ -1,0 +1,18 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: maas
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+    ports:
+      - protocol: "TCP"
+        port: 80
+        targetPort: 1337
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: false
+    image: eu.gcr.io/imaginaryctf-2022/maas-healthcheck:ca000c8da77bc76c413698952fc4f855775b14ecbe37c7189b9f0b31780b08bb
+  image: eu.gcr.io/imaginaryctf-2022/maas-challenge:091608beb8762d8ba4f19d418a32924bc7717235089c8060de50573d9168673c

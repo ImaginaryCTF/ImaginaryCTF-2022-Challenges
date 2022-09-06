@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  '1337':
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        FLAG_FILENAME: FL46_7BVY31.7X7
+    read_only: true
+    ports:
+      - 3000:3000

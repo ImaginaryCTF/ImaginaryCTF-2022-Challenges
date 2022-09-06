@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CyberCook</title>
+    <script src="main.js"></script>
+
+    <script>
+         // https://stackoverflow.com/questions/831030/how-to-get-get-request-parameters-in-javascript
+         // Did AP CSP properly teach me JS? no
+         function getRequests() {
+             var s1 = location.search.substring(1, location.search.length).split('&'),
+                 r = {}, s2, i;
+             for (i = 0; i < s1.length; i += 1) {
+                 s2 = s1[i].split('=');
+                 r[decodeURIComponent(s2[0]).toLowerCase()] = decodeURIComponent(s2[1]);
+             }
+             return r;
+         };
+
+         var q = getRequests();
+
+         function htoa(hexx) {
+             var hex = hexx.toString();//force conversion
+             var str = '';
+             for (var i = 0; i < hex.length; i += 2)
+                 str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+             return str;
+         }
+         function atoh(str) {
+             var result = '';
+             for (var i=0; i<str.length; i++) {
+                 result += str.charCodeAt(i).toString(16);
+             }
+             return result;
+        }
+        Module.onRuntimeInitialized = function() {
+            if (q["action"] == "base64") {
+                document.getElementById("input").value = htoa(q["input"]);
+                s(q["input"]);
+            }
+        }
+
+        function s(inp) {
+            // according to the docs, this function is hard to use but I'll use it anyways!
+            var a = allocate(intArrayFromString(inp), ALLOC_NORMAL);
+            var res = document.getElementById("ret");
+            var b = Module._base64_encode(a, inp.length/2);
+            res.innerHTML = AsciiToString(b);
+            initialized = 1;
+       }
+    </script>
+  </head>
+  
+  <body>
+    <h1>CyberCook</h1>
+    <div style="display: inline-block;">
+        <input id="input" type="paragraph" />
+        <button id="run_button" onclick="s(atoh(document.getElementById('input').value))">Cook!</button>
+        <label id="ret"></label>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+  sequel_sequel:
+    build: .
+    network_mode: bridge
+    ports:
+      - 0.0.0.0:42022:22
+

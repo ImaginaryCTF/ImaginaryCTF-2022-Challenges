@@ -1,0 +1,19 @@
+body {
+  background-color: #c4d300;
+}
+
+p {
+  font-family: "Waiting for the Sunrise", cursive;
+  font-size: 40px;
+  font-weight: bold;
+  max-width: 600px;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

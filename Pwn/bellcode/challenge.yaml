@@ -1,0 +1,13 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: bellcode
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: false
+  image: eu.gcr.io/imaginaryctf-2022/bellcode-challenge:268b9ab4a4eb3d975e54e994ddffce468126ec24f8d7a4a3c9bd01795cf72a14

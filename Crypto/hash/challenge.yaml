@@ -1,0 +1,13 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: hash
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: false
+  image: eu.gcr.io/imaginaryctf-2022/hash-challenge:ecde24ede940a9e4bf31ab2c5b97b0c561ff831d3392d17f348f5c5db92f504e

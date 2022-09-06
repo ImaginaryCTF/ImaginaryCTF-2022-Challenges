@@ -1,0 +1,58 @@
+<h1>Democracy</h1><h2>User info</h2>
+{% if user %}
+    Logged in as: {{ user | safe }}<br><br>
+    <a href='/me'>Profile</a><br>
+    <a href='/logout'>Logout</a>
+{% else %}
+    Not logged in.<br><br>
+    <a href='/login'>Login</a><br>
+    <a href='/register'>Register</a><br>
+{% endif %}
+
+<h2>Leaderboard</h2>
+<h3>There will be {{ num_winners }} winner(s)!</h3>
+When the timer is up, the flag will be available at <a href='/flag'>/flag</a> if you won.<br><br>
+{% if voting_ended %}
+    <h3>Voting has ended!</h3><br><br>
+    <h3>Countdown until server resets:</h3><br>
+{% else %}
+    <h3>Countdown until voting ends:</h3>
+{% endif %}
+<h3 id='countdown'></h3>
+<ol>
+{% for user in votes %}
+    <li><a href='/user/{{ user[1] }}'>{{ user[0] | safe }}</a> ({{ user[2] }} votes)</li>
+{% endfor %}
+</ol>
+
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date('{{ datestr }}').getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
